@@ -1,8 +1,12 @@
-﻿using System;
+﻿
+   
+    
+        string inp = Console.ReadLine();
+        string[] words = inp.Split('; ');
 
-public class Class1
-{
-	public Class1()
-	{
-	}
-}
+
+
+
+        var bok1 = words[0];
+        var bok2 = int.Parse(words[1]);
+        var bok3 = int.Parse(words[2]);
