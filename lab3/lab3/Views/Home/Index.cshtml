@@ -1,0 +1,58 @@
+﻿@model lab3.Models.Dane
+
+<h1>Formularz Rejestracyjny</h1>
+
+<form asp-action="Form" method="post">
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+    <div>
+        <label asp-for="Imie"></label>
+        <input asp-for="Imie" class="form-control" />
+        <span asp-validation-for="Imie" class="text-danger"></span>
+    </div>
+
+    <div>
+        <label asp-for="Nazwisko"></label>
+        <input asp-for="Nazwisko" class="form-control" />
+        <span asp-validation-for="Nazwisko" class="text-danger"></span>
+    </div>
+
+    <div>
+        <label asp-for="Email"></label>
+        <input asp-for="Email" class="form-control" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+
+    <div>
+        <label asp-for="Hasło"></label>
+        <input asp-for="Hasło" class="form-control" />
+        <span asp-validation-for="Hasło" class="text-danger"></span>
+    </div>
+
+    <div>
+        <label asp-for="PotwierdzenieHasła"></label>
+        <input asp-for="PotwierdzenieHasła" class="form-control" />
+        <span asp-validation-for="PotwierdzenieHasła" class="text-danger"></span>
+    </div>
+
+    <div>
+        <label asp-for="NrTelefonu"></label>
+        <input asp-for="NrTelefonu" class="form-control" />
+        <span asp-validation-for="NrTelefonu" class="text-danger"></span>
+    </div>
+
+    <div>
+        <label asp-for="Wiek"></label>
+        <input asp-for="Wiek" class="form-control" />
+        <span asp-validation-for="Wiek" class="text-danger"></span>
+    </div>
+    </p>
+    <div>
+         <label asp-for="Miasto">Miasto</label>
+         <select asp-for="Miasto" asp-items="Html.GetEnumSelectList<lab3.Models.Dane.Miasta>()"></select>
+
+    </p>
+    </p>
+    <button type="submit" class="button">Zarejestruj</button>
+    <button type="reset" class="button">Wyczyść</button>
+</form>
