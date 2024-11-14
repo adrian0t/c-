@@ -56,3 +56,80 @@
     <button type="submit" class="button">Zarejestruj</button>
     <button type="reset" class="button">Wyczyść</button>
 </form>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.12/jquery.validate.unobtrusive.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $("#rejestracjaForm").validate({
+            rules: {
+                Imie: {
+                    required: true,
+                    minlength: 2
+                },
+                Nazwisko: {
+                    required: true,
+                    minlength: 2
+                },
+                Email: {
+                    required: true,
+                    email: true
+                },
+                Haslo: {
+                    required: true,
+                    minlength: 8,
+                    pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/
+                },
+                PotwierdzenieHasla: {
+                    required: true,
+                    equalTo: "#Haslo"
+                },
+                Telefon: {
+                    required: true,
+                    digits: true,
+                    minlength: 9,
+                    maxlength: 9
+                },
+                Wiek: {
+                    required: true,
+                    range: [10, 80]
+                }
+            },
+            messages: {
+                Imie: {
+                    required: "Imię jest wymagane",
+                    minlength: "Imię musi mieć co najmniej 2 znaki"
+                },
+                Nazwisko: {
+                    required: "Nazwisko jest wymagane",
+                    minlength: "Nazwisko musi mieć co najmniej 2 znaki"
+                },
+                Email: {
+                    required: "Adres e-mail jest wymagany",
+                    email: "Niepoprawny adres e-mail"
+                },
+                Haslo: {
+                    required: "Hasło jest wymagane",
+                    minlength: "Hasło musi mieć co najmniej 8 znaków",
+                    pattern: "Hasło musi zawierać co najmniej jedną cyfrę, jedną dużą literę i jedną małą literę"
+                },
+                PotwierdzenieHasla: {
+                    required: "Potwierdzenie hasła jest wymagane",
+                    equalTo: "Hasła muszą być takie same"
+                },
+                Telefon: {
+                    required: "Nr telefonu jest wymagany",
+                    digits: "Nr telefonu musi składać się tylko z cyfr",
+                    minlength: "Nr telefonu musi mieć dokładnie 9 cyfr",
+                    maxlength: "Nr telefonu musi mieć dokładnie 9 cyfr"
+                },
+                Wiek: {
+                    required: "Wiek jest wymagany",
+                    range: "Wiek musi być pomiędzy 10 a 80 lat"
+                }
+            }
+        });
+    });
+</script>
